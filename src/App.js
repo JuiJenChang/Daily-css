@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Daily from './daily';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      menu: false,
+    }
+    this.openMenu = this.openMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  openMenu() {
+    this.setState({
+      menu: true,
+    })
+  }
+
+  closeMenu() {
+    this.setState({
+      menu: false,
+    })
+  }
+  
+  render() {
+    return (
+      <div>
+        <Daily 
+          menu = {this.state.menu}
+          openMenu = {this.openMenu}
+          closeMenu = {this.closeMenu}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
