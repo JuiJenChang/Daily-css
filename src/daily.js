@@ -12,15 +12,15 @@ class Daily extends Component {
                         {
                           this.props.menu ?
                             <div className="menu">
-                              <GoX className="GoX" onClick={this.props.closeMenu} />
+                              <GoX className="GoX" onClick={this.props.toggleMenu} />
                                 <li>About Me</li>
                                 <li>My Work</li>
                                 <li>Contact Me</li>
-                            </div> : <GoGrabber className="GoGrabber" onClick={this.props.openMenu} />
+                            </div> : <GoGrabber className="GoGrabber" onClick={this.props.toggleMenu} />
                         }
                     </div>
                     <div className="main">
-                        <div><h1>Hello</h1></div>
+                        <div><h1>{this.props.arr}</h1></div>
                         <div>
                             <p>My name is Ray Chang and I like to make websites.</p>
                             <p>Enter your email address below if you're interested in working together.</p>
