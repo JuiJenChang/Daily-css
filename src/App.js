@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-import Daily from './daily';
+import Menu from './menu';
+import Main from './main';
+import './App.css';
 
 let count = 0;
-let hello = [ 
-  'Hola.',
-  'Aloha.',
-  'Bonjour.',
+let hello = [
+  '你好',
+	'Aloha.',
+	'Bonjour.',
+	'Hola.',
+	'Hallo.',
+	'Ciao.',
+	'Bonghjornu.',
+	'Ahoj.',
+	'Dia dhuit.',
+	'Moni.',
+	'Pẹlẹ o.',
+	'Salam.',
+	'Sveiki.',
+  'Zdravo.',
   'Hello.',
-];
+]
 
 class App extends Component {
   constructor(props) {
@@ -15,25 +28,25 @@ class App extends Component {
 
     this.state = {
       menu: false,
-      arr: "Hello.",
+      arr: 'Hello.',
     }
     this.toggleMenu = this.toggleMenu.bind(this);
     this.titleChange = this.titleChange.bind(this);
   }
 
   titleChange() {
-    if(count === 4) count = 0;
-      this.setState({
-        arr: hello[count++],
-      })
+    if(count === 15) count = 0;
+    this.setState({
+      arr: hello[count++],
+    })
   }
 
   componentDidMount() {
-    this.myInterval = setInterval(this.titleChange, 3000)
+    this.myInterval = setInterval(this.titleChange, 2000);
   }
 
-  componentWillUnmount(){
-    clearInterval(this.myInterval)
+  componentWillUnmount() {
+    clearInterval(this.myInterval);
   }
 
   toggleMenu() {
@@ -44,11 +57,13 @@ class App extends Component {
   
   render() {
     return (
-      <div>
-        <Daily 
-          arr = {this.state.arr}
+      <div className="container">
+        <Menu
           menu = {this.state.menu}
           toggleMenu = {this.toggleMenu}
+        />
+        <Main 
+          arr = {this.state.arr}
         />
       </div>
     );
